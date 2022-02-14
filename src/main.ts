@@ -3,7 +3,6 @@ import changelog from './changelog'
 
 async function run(): Promise<void> {
   try {
-    const token = core.getInput('token')
     const changelogFileName = core.getInput('changelog_file_name')
     const newLog = core.getInput('changelog_update')
     const newComments = core.getInput('changelog_comments')
