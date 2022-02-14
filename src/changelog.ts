@@ -21,7 +21,7 @@ const mountLog = ({newLog, oldLogs, wordFind}: IMountLog) => {
     }
   })
 
-  logsSplit[firstIndexWord+1] = `\n- ${newLog}`
+  logsSplit[firstIndexWord + 1] = `\n- ${newLog}`
   const fullLogs = logsSplit.join('\n')
   return fullLogs
 }
@@ -41,8 +41,8 @@ export default async function changelog({
 
     if (newComments?.length) {
       const fullLogsWithComment = mountLog({
-        newLog: newComments, 
-        oldLogs, 
+        newLog: newComments,
+        oldLogs,
         wordFind: commentFind
       })
 
@@ -54,13 +54,13 @@ export default async function changelog({
         encoding
       )
     }
-    
+
     const fullLogsWithLog = mountLog({
-      newLog, 
-      oldLogs, 
+      newLog,
+      oldLogs,
       wordFind: logFind
     })
-    
+
     core.debug(`New log add ${newLog}`)
 
     await fsPromises.writeFile(

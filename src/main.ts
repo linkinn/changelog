@@ -13,9 +13,9 @@ async function run(): Promise<void> {
     core.debug(`Start update changelog ${new Date().toTimeString()}`)
 
     await changelog({
-      changelogFileName, 
-      newLog, 
-      newComments, 
+      changelogFileName,
+      newLog,
+      newComments,
       logFind,
       commentFind,
       encoding
