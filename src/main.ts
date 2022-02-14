@@ -4,8 +4,8 @@ import changelog from './changelog'
 async function run(): Promise<void> {
   try {
     const changelogFileName = core.getInput('changelog_file_name')
-    const newLog = core.getInput('changelog_update')
-    const newComments = core.getInput('changelog_comments')
+    const newLog = core.getInput('changelog_new_log')
+    const newComments = core.getInput('changelog_new_comments')
     const logFind = core.getInput('log_find')
     const commentFind = core.getInput('comment_find')
     const encoding = core.getInput('encoding')

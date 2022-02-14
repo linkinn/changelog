@@ -2,10 +2,26 @@ name: 'Your name here'
 description: 'Provide a description here'
 author: 'Your name or organization here'
 inputs:
-  milliseconds: # change this
+  changelog_file_name: # change this
+    required: false
+    description: 'add changelog file name'
+    default: 'CHANGELOG.md'
+  changelog_new_log: # change this
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'add the key where the log below will be added'
+  changelog_new_comments: # change this
+    required: false
+    description: 'add the key where the log below will be added'
+  log_find: # change this
+    required: true
+    description: 'add the key where the log below will be added'
+  comment_find: # change this
+    required: false
+    description: 'add the key where the log below will be added'
+  encoding: # change this
+    required: false
+    description: 'add encoded read file'
+    default: 'utf-8'
 runs:
   using: 'node12'
   main: 'dist/index.js'
