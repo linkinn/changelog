@@ -6,20 +6,27 @@ import {IChangeLog, IGetOldLogs, IMountLog} from './interfaces'
 
 const fsPromises = fs.promises
 
-const getOldlogs = async ({changelogFileName, encoding}: IGetOldLogs) => {
+export const getOldlogs = async ({changelogFileName, encoding}: IGetOldLogs) => {
   const buf = await fsPromises.readFile(changelogFileName, encoding)
   const oldLogs = buf.toString(encoding)
   return oldLogs
 }
 
-const mountLog = ({newLog, oldLogs, wordFind}: IMountLog) => {
+export const mountLog = ({newLog, oldLogs, wordFind}: IMountLog) => {
   const logsSplit = oldLogs.split('\n')
+
+  if (logsSplit.length === 1) {
+    logsSplit[1] = `\n- ${newLog}`
+    const fullLogs = logsSplit.join('\n')
+    return fullLogs
+  }
 
   const firstIndexWord = logsSplit.findIndex((word, index) => {
     if (word === wordFind) {
       return index
     }
   })
+  console.log(firstIndexWord)
 
   logsSplit[firstIndexWord + 1] = `\n- ${newLog}`
   const fullLogs = logsSplit.join('\n')
